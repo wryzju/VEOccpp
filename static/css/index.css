@@ -78,8 +78,64 @@ body {
     transform: translateY(-2px);
 }
 
-.link-block a {
-    margin: 8px 4px;
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.publication-links .link-block {
+  display: inline-flex;
+  align-items: center;
+}
+
+.publication-links .button {
+  margin: 0;
+}
+
+.button-icon-svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
+
+.code-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+  opacity: 0.78;
+}
+
+.code-coming-soon > span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.code-coming-soon small {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding-left: 0.45rem;
+  border-left: 1px solid rgb(255 255 255 / 0.45);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.code-coming-soon:hover {
+  transform: none !important;
+  background: var(--text-primary) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.ieee-xplore-logo {
+  display: block;
+  width: auto;
+  height: 1.35rem;
+  object-fit: contain;
 }
 
 .dnerf {
@@ -287,6 +343,28 @@ body {
   font-size: 1rem !important;
   color: var(--text-secondary);
   margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Sequential qualitative results */
+.results-stack .result-item {
+  margin-bottom: 3.5rem;
+}
+
+.results-stack .result-item:last-child {
+  margin-bottom: 0;
+}
+
+.results-stack .result-item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.results-stack .subtitle {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 1rem !important;
   font-weight: 500;
 }
 
@@ -685,9 +763,15 @@ code {
     max-width: 90vw;
   }
   
-  .link-block {
-    display: block;
-    margin-bottom: 0.5rem;
+  .publication-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .publication-links .link-block {
+    display: flex;
+    width: 100%;
   }
   
   .button {
@@ -746,6 +830,219 @@ a:focus {
     background: transparent !important;
     color: var(--text-primary) !important;
     box-shadow: none !important;
+  }
+}
+
+/* VEOcc++ page-specific components */
+.button-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  margin-right: 0.35rem;
+  font-weight: 800;
+}
+
+.button-icon-svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.45rem;
+  fill: currentColor;
+}
+
+.results-stack .result-item {
+  margin-bottom: 4rem;
+}
+
+.results-stack .result-item:last-child {
+  margin-bottom: 0;
+}
+
+.results-stack img,
+.teaser img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+}
+
+.results-stack .subtitle {
+  max-width: 1100px;
+  margin: 1.25rem auto 0;
+  color: var(--text-secondary);
+  font-size: 1rem !important;
+  font-weight: 500;
+}
+
+.result-table-wrap {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--background-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.result-table-wrap .title {
+  margin: 0 !important;
+  padding: 1.25rem 1.5rem;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.result-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-table th,
+.result-table td {
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.result-table th:first-child,
+.result-table td:first-child {
+  text-align: left;
+}
+
+.result-table thead th {
+  color: var(--text-secondary);
+  background: var(--background-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.result-table .ours {
+  background: #eff6ff;
+}
+
+.result-table .offline-row {
+  background: #fff7ed;
+}
+
+.table-note {
+  margin: 0;
+  padding: 0.75rem 1.25rem 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.realworld-section {
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+}
+
+.demo-section {
+  border-bottom: 1px solid var(--border-color);
+  background: var(--background-primary);
+}
+
+.demo-group-title {
+  margin: 1.25rem 0 !important;
+  font-size: 1.25rem !important;
+  text-align: left;
+}
+
+.demo-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.demo-grid-featured {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.demo-grid-dataset {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.demo-card {
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background: white;
+  box-shadow: var(--shadow-md);
+}
+
+.demo-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #0f172a;
+  object-fit: contain;
+}
+
+.demo-card-body {
+  padding: 1rem 1.15rem 1.2rem;
+}
+
+.demo-card-body h4 {
+  margin: 0 0 0.35rem;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.demo-card-body p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.deployment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+}
+
+.deployment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: white;
+  box-shadow: var(--shadow-sm);
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.deployment-card .metric {
+  color: var(--primary-color);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+  .demo-grid-featured,
+  .demo-grid-dataset {
+    grid-template-columns: 1fr;
+  }
+
+  .deployment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .results-stack .result-item {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .deployment-grid {
+    grid-template-columns: 1fr;
   }
 }
 

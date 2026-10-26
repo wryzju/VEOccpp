@@ -1,521 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement">
+  <meta name="description" content="VEOcc++ unifies online semantic occupancy mapping and offline global refinement through a persistent sparse voxel feature map.">
+  <meta name="keywords" content="semantic occupancy mapping, embodied AI, voxel feature map, online mapping, offline refinement, computer vision, robotics">
+  <meta name="author" content="Ruoyu Wang, Jiahan Li, Yong Liu, Kexin Zhang">
   <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
-
-  <!-- Twitter -->
+  <meta property="og:site_name" content="APRIL Lab, Zhejiang University">
+  <meta property="og:title" content="VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement">
+  <meta property="og:description" content="A unified voxel-centric framework for online incremental semantic occupancy mapping and offline global map refinement.">
+  <meta property="og:url" content="https://wryzju.github.io/VEOccpp/">
+  <meta property="og:image" content="https://wryzju.github.io/VEOccpp/static/images/social_preview.png">
+  <meta property="article:published_time" content="2026-10-20T00:00:00Z">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
-
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
+  <meta name="twitter:title" content="VEOcc++: Persistent Voxel Feature Maps for Online Mapping and Offline Refinement">
+  <meta name="twitter:description" content="A unified voxel-centric framework for embodied online semantic occupancy mapping and offline refinement.">
+  <meta name="twitter:image" content="https://wryzju.github.io/VEOccpp/static/images/social_preview.png">
+  <meta name="citation_title" content="VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement">
+  <meta name="citation_author" content="Wang, Ruoyu">
+  <meta name="citation_author" content="Li, Jiahan">
+  <meta name="citation_author" content="Liu, Yong">
+  <meta name="citation_author" content="Zhang, Kexin">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.27704v1">
+  <title>VEOcc++: Learning Persistent Voxel Feature Maps</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement",
+    "description": "VEOcc++ unifies online incremental semantic occupancy mapping and offline global map refinement through a persistent sparse voxel feature map.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Ruoyu Wang"},
+      {"@type": "Person", "name": "Jiahan Li"},
+      {"@type": "Person", "name": "Yong Liu"},
+      {"@type": "Person", "name": "Kexin Zhang"}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
+    "datePublished": "2026-10-20",
+    "url": "https://wryzju.github.io/VEOccpp/",
+    "sameAs": "https://arxiv.org/abs/2610.27704",
+    "isAccessibleForFree": true
   }
   </script>
 </head>
 <body>
-
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- More Works Dropdown -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">↑</button>
   <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
+    <button class="more-works-btn" onclick="toggleMoreWorks()" aria-expanded="false" aria-controls="moreWorksDropdown">More Works <span class="dropdown-arrow">⌄</span></button>
     <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
+      <div class="dropdown-header"><h4>More Works from Our Lab</h4><button class="close-btn" onclick="toggleMoreWorks()" aria-label="Close">×</button></div>
       <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
+        <a href="https://wryzju.github.io/VEOcc/" class="work-item" target="_blank" rel="noopener noreferrer"><div class="work-info"><h5>VEOcc: Voxel-Centric Online Semantic Occupancy Prediction</h5><p>A voxel-centric framework for accurate and efficient embodied online occupancy prediction.</p><span class="work-venue">IEEE RA-L 2026</span></div><span aria-hidden="true">↗</span></a>
+        <a href="https://studyingfufu.github.io/L2COcc/" class="work-item" target="_blank" rel="noopener noreferrer"><div class="work-info"><h5>L2COcc: Lightweight Camera-Centric Semantic Scene Completion</h5><p>An efficient camera-centric SSC framework with cross-modal knowledge distillation.</p><span class="work-venue">IROS 2025</span></div><span aria-hidden="true">↗</span></a>
+        <a href="https://wryzju.github.io/SparseWorld/" class="work-item" target="_blank" rel="noopener noreferrer"><div class="work-info"><h5>SparseWorld: World Models with Sparse Scene Representation</h5><p>A lightweight driving world model for future forecasting, motion prediction, and planning.</p><span class="work-venue">IROS 2026</span></div><span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </div>
 
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered"><div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+              <span class="author-block"><a href="https://scholar.google.com.hk/citations?hl=zh-CN&amp;pli=1&amp;user=5sPSRDAAAAAJ" target="_blank" rel="noopener noreferrer">Ruoyu Wang</a><sup>†</sup>,</span>
+              <span class="author-block"><a>Jiahan Li</a><sup>†</sup>,</span>
+              <span class="author-block"><a href="https://april.zju.edu.cn/team/dr-yong-liu/" target="_blank" rel="noopener noreferrer">Yong Liu</a><sup>*</sup>,</span>
+              <span class="author-block"><a>Kexin Zhang</a><sup>*</sup></span>
             </div>
-          </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">APRIL Lab, Institute of Cyber-Systems and Control, Zhejiang University, China</span><br>
+              <span class="eql-cntrb"><small><sup>†</sup>Equal contribution&nbsp;&nbsp;<sup>*</sup>Corresponding authors</small></span>
+            </div>
+            <div class="column has-text-centered"><div class="publication-links">
+              <span class="link-block"><a href="https://arxiv.org/pdf/2610.27704v1" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark"><span class="button-symbol" aria-hidden="true">▤</span><span>Paper</span></a></span>
+              <span class="link-block"><a href="https://arxiv.org/abs/2610.27704" target="_blank" rel="noopener noreferrer" class="external-link button is-normal is-rounded is-dark"><span class="button-symbol" aria-hidden="true">aχ</span><span>arXiv</span></a></span>
+              <span class="link-block"><span class="button is-normal is-rounded is-dark code-coming-soon" aria-label="Code coming soon"><svg class="button-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.16 1.18a10.97 10.97 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.82 1.19 3.08 0 4.41-2.71 5.38-5.29 5.67.42.36.78 1.06.78 2.14v3.18c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7z"/></svg><span>Code <small>Coming Soon</small></span></span></span>
+            </div></div>
+          </div></div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
+    <section class="hero teaser"><div class="container is-max-desktop"><div class="hero-body">
+      <img src="static/images/teaser.svg" alt="VEOcc++ online mapping and offline refinement overview">
+      <h2 class="subtitle has-text-centered mt-4"><b>Online mapping meets offline refinement.</b> VEOcc++ maintains a persistent voxel feature map during exploration, then revisits local evidence and broader spatial context to refine the completed scene map.</h2>
+    </div></div></section>
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
+    <section class="section hero is-light"><div class="container is-max-desktop"><div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified"><p>Semantic occupancy mapping supports embodied perception during exploration and detailed scene understanding afterward, giving rise to two complementary requirements: online incremental mapping for maintaining an up-to-date global map under causal constraints, and offline global map refinement for improving the completed scene representation with additional computation. We present VEOcc++, a unified voxel-centric framework that connects both stages through a persistent sparse voxel feature map. During exploration, the map expands with newly observed regions and integrates aligned local features through reliability-guided updates, while context-aware decoding produces the current semantic occupancy map. After exploration, cached local features are consolidated as complementary evidence and combined with the completed online representation for multi-scale spatial refinement. On EmbodiedOcc-ScanNet, VEOcc++ achieves 67.12% IoU and 58.40% mIoU, establishing new state-of-the-art performance for online incremental mapping. With the local predictor fixed, our online mapping pipeline outperforms VEOcc fusion by 3.70 IoU and 3.74 mIoU points. Offline global map refinement further improves the completed map to 67.79% IoU and 59.37% mIoU using only the observations acquired during exploration. Zero-shot deployment on a mobile robot further demonstrates transferability to unseen environments, onboard feasibility, and scalability to large-scale indoor mapping.</p></div>
+    </div></div></div></section>
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
+    <section class="hero is-small demo-section"><div class="hero-body"><div class="container">
+      <h2 class="title is-3">Video Demonstrations</h2>
+      <h3 class="title is-4 demo-group-title">Zero-Shot Real-World Deployment</h3>
+      <div class="demo-grid demo-grid-featured">
+        <article class="demo-card">
+          <video controls muted playsinline preload="metadata"><source src="static/videos/01_real_world_reading_room.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>
+          <div class="demo-card-body"><h4>Reading Room</h4><p>Zero-shot online mapping over a 31.31 m robot trajectory in a furnished indoor environment.</p></div>
+        </article>
+        <article class="demo-card">
+          <video controls muted playsinline preload="metadata"><source src="static/videos/02_real_world_laboratory_floor.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>
+          <div class="demo-card-body"><h4>Laboratory Floor</h4><p>Large-scale online mapping across rooms, lobby areas, and a long corridor over a 235.15 m trajectory.</p></div>
+        </article>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+      <h3 class="title is-4 demo-group-title">EmbodiedOcc-ScanNet</h3>
+      <div class="demo-grid demo-grid-dataset">
+        <article class="demo-card">
+          <video controls muted playsinline preload="metadata"><source src="static/videos/03_embodiedocc_scannet_examples_01.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>
+          <div class="demo-card-body"><h4>Indoor Scenes I</h4><p>Seating area, lounge, and bedroom sequences.</p></div>
+        </article>
+        <article class="demo-card">
+          <video controls muted playsinline preload="metadata"><source src="static/videos/04_embodiedocc_scannet_examples_02.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>
+          <div class="demo-card-body"><h4>Indoor Scenes II</h4><p>Sink and cabinet, desk and storage, and multi-table seating areas.</p></div>
+        </article>
+        <article class="demo-card">
+          <video controls muted playsinline preload="metadata"><source src="static/videos/05_embodiedocc_scannet_examples_03.mp4" type="video/mp4">Your browser does not support HTML5 video.</video>
+          <div class="demo-card-body"><h4>Indoor Scenes III</h4><p>Office, kitchenette, and lounge sequences.</p></div>
+        </article>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
+    </div></div></section>
+
+    <section class="hero is-small"><div class="hero-body"><div class="container">
+      <h2 class="title is-3">Methodology</h2>
+      <div class="results-stack"><div class="result-item">
+        <img src="static/images/method.svg" alt="Overall framework of VEOcc++" loading="lazy">
+        <h2 class="subtitle has-text-centered"><b>Overall framework of VEOcc++.</b> Online mapping aligns local voxel features and updates a Persistent Voxel Feature Map, while Context-Aware Decoding produces the current map. Offline refinement aggregates cached local evidence and performs multi-scale global spatial refinement.</h2>
+      </div></div>
+    </div></div></section>
+
+    <section class="hero is-small is-light"><div class="hero-body"><div class="container">
+      <h2 class="title is-3">Quantitative Results</h2>
+      <div class="result-table-wrap"><h3 class="title is-4">Local Occupancy Prediction</h3><table class="result-table">
+        <thead><tr><th>Method</th><th>IoU</th><th>mIoU</th></tr></thead>
+        <tbody><tr><td>GPOcc (VGGT)</td><td>63.14</td><td>56.19</td></tr><tr><td>GPOcc++ (VGGT)</td><td>63.72</td><td>57.41</td></tr><tr><td>VEOcc</td><td>64.55</td><td>55.49</td></tr><tr class="ours"><td>VEOcc++ (Ours)</td><td><b>66.98</b></td><td><b>58.17</b></td></tr></tbody>
+      </table></div>
+      <div class="result-table-wrap"><h3 class="title is-4">Global Occupancy Mapping</h3><table class="result-table">
+        <thead><tr><th>Method</th><th>Setting</th><th>IoU</th><th>mIoU</th></tr></thead>
+        <tbody><tr><td>GPOcc++ (VGGT)</td><td>Online</td><td>62.50</td><td>57.41</td></tr><tr><td>VEOcc</td><td>Online</td><td>62.21</td><td>53.00</td></tr><tr><td>VEOcc<sup>†</sup></td><td>Online</td><td>63.42</td><td>54.66</td></tr><tr class="ours online-row"><td>VEOcc++ (Ours)</td><td>Online</td><td><b>67.12</b></td><td><b>58.40</b></td></tr><tr class="ours offline-row"><td>VEOcc++ (Ours)</td><td>Offline refined</td><td><b>67.79</b></td><td><b>59.37</b></td></tr></tbody>
+      </table><p class="table-note"><sup>†</sup>VEOcc with the same local predictor as VEOcc++.</p></div>
+    </div></div></section>
+
+    <section class="hero is-small"><div class="hero-body"><div class="container">
+      <h2 class="title is-3">Qualitative Results</h2>
+      <div class="results-stack">
+        <div class="result-item"><img src="static/images/online-offline.svg" alt="Progressive online mapping and offline refinement" loading="lazy"><h2 class="subtitle has-text-centered"><b>Progressive online incremental mapping and offline map refinement.</b> Each row shows map evolution from the first observation to the completed online map, followed by the refined result and ground truth.</h2></div>
+        <div class="result-item"><img src="static/images/online-compare.svg" alt="Online mapping comparison with GPOcc and VEOcc" loading="lazy"><h2 class="subtitle has-text-centered"><b>Qualitative comparison of online incremental mapping.</b> VEOcc++ produces more complete structures and cleaner semantic boundaries than previous online mapping approaches.</h2></div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
+    </div></div></section>
 
+    <section class="hero is-small realworld-section"><div class="hero-body"><div class="container">
+      <h2 class="title is-3">Zero-Shot Real-Robot Deployment</h2>
+      <div class="results-stack"><div class="result-item"><img src="static/images/realworld.svg" alt="Zero-shot real-world mapping in a reading room and laboratory floor" loading="lazy"><h2 class="subtitle has-text-centered"><b>Zero-shot real-world mapping.</b> VEOcc++ maps a furnished Reading Room and a complete Laboratory Floor without scene-specific fine-tuning. Offline refinement further improves the room-scale result.</h2></div></div>
+      <div class="deployment-grid"><article class="deployment-card"><span class="metric">31.31 m</span><span>Reading Room trajectory</span></article><article class="deployment-card"><span class="metric">235.15 m</span><span>Laboratory Floor trajectory</span></article><article class="deployment-card"><span class="metric">0.764 s</span><span>Average onboard time per keyframe</span></article><article class="deployment-card"><span class="metric">57.3 × 15.6 m</span><span>Largest mapped extent</span></article></div>
+    </div></div></section>
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+    <section class="section" id="BibTeX"><div class="container is-max-desktop content">
+      <div class="bibtex-header"><h2 class="title">BibTeX</h2><button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"><span class="copy-text">Copy</span></button></div>
+      <pre id="bibtex-code"><code>@article{wang2026veoccpp,
+  title={VEOcc++: Learning Persistent Voxel Feature Maps for Embodied Online Semantic Occupancy Mapping and Offline Refinement},
+  author={Wang, Ruoyu and Li, Jiahan and Liu, Yong and Zhang, Kexin},
+  journal={arXiv preprint arXiv:2610.27704},
+  year={2026}
 }</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+    </div></section>
+  </main>
 
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+  <footer class="footer"><div class="container"><div class="columns is-centered"><div class="column is-8"><div class="content has-text-centered"><p>This page is based on the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies</a> project page.</p></div></div></div></div></footer>
+</body>
+</html>
